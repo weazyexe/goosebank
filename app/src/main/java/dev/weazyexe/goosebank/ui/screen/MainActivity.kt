@@ -2,8 +2,7 @@ package dev.weazyexe.goosebank.ui.screen
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.commit
+import androidx.core.view.WindowInsetsCompat.Type.navigationBars
 import androidx.fragment.app.commitNow
 import dev.weazyexe.goosebank.R
 import dev.weazyexe.goosebank.databinding.ActivityMainBinding
@@ -13,7 +12,7 @@ import dev.weazyexe.goosebank.ui.screen.finances.FinancesFragment
 import dev.weazyexe.goosebank.ui.screen.history.HistoryFragment
 import dev.weazyexe.goosebank.ui.screen.payments.PaymentsFragment
 import dev.weazyexe.goosebank.util.edgeToEdge
-import dev.weazyexe.goosebank.util.padding
+import dev.weazyexe.goosebank.util.paddingTo
 
 /**
  * Main screen
@@ -77,7 +76,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun edgeToEdge() = with(binding) {
         edgeToEdge {
-            bottomNavigation.padding(WindowInsetsCompat.Type.navigationBars())
+            bottomNavigation paddingTo navigationBars()
         }
     }
 }

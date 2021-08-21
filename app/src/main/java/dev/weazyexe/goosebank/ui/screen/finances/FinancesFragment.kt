@@ -2,7 +2,7 @@ package dev.weazyexe.goosebank.ui.screen.finances
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsCompat.Type.statusBars
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.weazyexe.goosebank.R
@@ -10,8 +10,7 @@ import dev.weazyexe.goosebank.databinding.FragmentFinancesBinding
 import dev.weazyexe.goosebank.ui.common.BaseFragment
 import dev.weazyexe.goosebank.ui.screen.finances.adapter.AccountAdapter
 import dev.weazyexe.goosebank.util.edgeToEdge
-import dev.weazyexe.goosebank.util.margin
-import dev.weazyexe.goosebank.util.padding
+import dev.weazyexe.goosebank.util.marginTo
 import dev.weazyexe.goosebank.util.string
 
 /**
@@ -47,7 +46,7 @@ class FinancesFragment : BaseFragment(R.layout.fragment_finances) {
 
     private fun edgeToEdge() = with(binding) {
         edgeToEdge {
-            toolbar.margin(WindowInsetsCompat.Type.statusBars())
+            toolbar marginTo statusBars()
         }
     }
 }

@@ -39,7 +39,7 @@ fun Fragment.edgeToEdge(handling: () -> Unit) {
 /**
  * Handle insets on the [View] with padding
  */
-fun View.padding(insetType: Int) {
+infix fun View.paddingTo(insetType: Int) {
     val oldPaddingLeft = paddingLeft
     val oldPaddingTop = paddingTop
     val oldPaddingRight = paddingRight
@@ -61,7 +61,7 @@ fun View.padding(insetType: Int) {
 /**
  * Handle insets on the [View] with margin
  */
-fun View.margin(insetType: Int) {
+infix fun View.marginTo(insetType: Int) {
     val oldMarginLeft = marginLeft
     val oldMarginTop = marginTop
     val oldMarginRight = marginRight
