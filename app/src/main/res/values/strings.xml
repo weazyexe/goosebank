@@ -9,4 +9,7 @@
     <string name="account_type_standard">Standard</string>
     <string name="account_type_platinum">Platinum</string>
     <string name="account_type_gold">Gold</string>
+
+    <string name="personal_offer_placeholder_title">Honk honk!</string>
+    <string name="personal_offer_placeholder_text">It\'s a lovely morning in the village and you are a horrible goose</string>
 </resources>
