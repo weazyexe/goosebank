@@ -2,6 +2,8 @@ package dev.weazyexe.goosebank.ui.screen
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.commit
+import androidx.fragment.app.commitNow
 import dev.weazyexe.goosebank.R
 import dev.weazyexe.goosebank.databinding.ActivityMainBinding
 import dev.weazyexe.goosebank.ui.common.BaseFragment
@@ -33,7 +35,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupBottomNav() {
         supportFragmentManager.beginTransaction().apply {
+            add(R.id.fragment_container, historyFragment, historyFragment.tag()).hide(
+                historyFragment
+            )
+            add(R.id.fragment_container, paymentsFragment, paymentsFragment.tag()).hide(
+                paymentsFragment
+            )
+            add(R.id.fragment_container, chatFragment, chatFragment.tag()).hide(chatFragment)
             add(R.id.fragment_container, financesFragment, financesFragment.tag())
+            currentScreen = financesFragment
             commit()
         }
 
@@ -50,10 +60,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun navigate(fragment: BaseFragment): Boolean {
         if (fragment != currentScreen) {
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment_container, fragment)
+            supportFragmentManager.commitNow {
+                hide(currentScreen ?: return false).show(fragment)
                 currentScreen = fragment
-                commit()
             }
 
             return true

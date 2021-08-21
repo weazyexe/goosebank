@@ -5,4 +5,8 @@
     <string name="menu_history">History</string>
     <string name="menu_payments">Payments</string>
     <string name="menu_chat">Chat</string>
+
+    <string name="account_type_standard">Standard</string>
+    <string name="account_type_platinum">Platinum</string>
+    <string name="account_type_gold">Gold</string>
 </resources>

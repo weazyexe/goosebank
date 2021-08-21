@@ -1,6 +1,6 @@
 package dev.weazyexe.goosebank.domain
 
-import androidx.annotation.ColorRes
+import androidx.annotation.StringRes
 import dev.weazyexe.goosebank.R
 
 /**
@@ -21,11 +21,11 @@ enum class AccountType {
     PLATINUM,
     GOLD;
 
-    @ColorRes
-    fun color(): Int = when(this) {
-        STANDARD -> R.color.teal
-        PLATINUM -> R.color.dark_gray
-        GOLD -> R.color.gold
+    @StringRes
+    fun title(): Int = when (this) {
+        STANDARD -> R.string.account_type_standard
+        PLATINUM -> R.string.account_type_platinum
+        GOLD -> R.string.account_type_gold
     }
 }
 

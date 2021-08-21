@@ -8,6 +8,8 @@
         <entry key="app/src/main/res/layout/fragment_finances.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_history.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_payments.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/view_holder_account.xml" value="0.2972523765514657" />
+        <entry key="app/src/main/res/layout/view_sum.xml" value="0.23096188966283057" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.30512820512820515" />
       </map>
     </option>
