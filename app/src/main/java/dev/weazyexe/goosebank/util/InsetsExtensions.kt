@@ -81,3 +81,15 @@ infix fun View.marginTo(insetType: Int) {
         insets
     }
 }
+
+fun View.showKeyboard() {
+    val activity = context as? Activity ?: return
+    val controller = WindowInsetsControllerCompat(activity.window, this)
+    controller.show(WindowInsetsCompat.Type.ime())
+}
+
+fun View.hideKeyboard() {
+    val activity = context as? Activity ?: return
+    val controller = WindowInsetsControllerCompat(activity.window, this)
+    controller.hide(WindowInsetsCompat.Type.ime())
+}

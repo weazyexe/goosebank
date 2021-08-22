@@ -12,4 +12,6 @@
 
     <string name="personal_offer_placeholder_title">Honk honk!</string>
     <string name="personal_offer_placeholder_text">It\'s a lovely morning in the village and you are a horrible goose</string>
+
+    <string name="search_text">Search</string>
 </resources>
