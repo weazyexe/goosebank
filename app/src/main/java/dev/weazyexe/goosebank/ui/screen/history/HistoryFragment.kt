@@ -31,7 +31,6 @@ class HistoryFragment : BaseFragment(R.layout.fragment_history) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.searchTransactions()
 
         edgeToEdge()
         setupToolbar()
@@ -39,6 +38,8 @@ class HistoryFragment : BaseFragment(R.layout.fragment_history) {
 
         listen()
         observe()
+
+        viewModel.searchTransactions()
     }
 
     private fun setupToolbar() = with(binding) {
