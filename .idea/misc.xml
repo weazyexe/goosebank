@@ -3,13 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/img_bubble_mine.xml" value="0.31296296296296294" />
+        <entry key="app/src/main/res/drawable/img_bubble_other.xml" value="0.31296296296296294" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22900567595301963" />
-        <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.3138452981705691" />
         <entry key="app/src/main/res/layout/fragment_finances.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_history.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_payments.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/toolbar_search.xml" value="0.39072768931232577" />
         <entry key="app/src/main/res/layout/view_holder_account.xml" value="0.2972523765514657" />
+        <entry key="app/src/main/res/layout/view_holder_message.xml" value="0.3850923776462945" />
         <entry key="app/src/main/res/layout/view_holder_transaction.xml" value="0.20936221556323287" />
         <entry key="app/src/main/res/layout/view_personal_offer.xml" value="0.2611645840913948" />
         <entry key="app/src/main/res/layout/view_search_toolbar.xml" value="0.27999887572804677" />

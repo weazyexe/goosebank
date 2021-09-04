@@ -6,6 +6,7 @@
     <color name="yellow_dark">#c6a700</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="light_gray">#DCDCDC</color>
 
     <color name="teal">#FF03DAC5</color>
     <color name="dark_gray">#303030</color>

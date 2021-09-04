@@ -14,4 +14,6 @@
     <string name="personal_offer_placeholder_text">It\'s a lovely morning in the village and you are a horrible goose</string>
 
     <string name="search_text">Search</string>
+
+    <string name="chat_type_message">Type a message...</string>
 </resources>

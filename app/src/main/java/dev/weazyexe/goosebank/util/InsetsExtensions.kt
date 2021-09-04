@@ -3,8 +3,8 @@ package dev.weazyexe.goosebank.util
 import android.app.Activity
 import android.os.Build
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.view.*
+import androidx.core.view.WindowInsetsCompat.Type.ime
 import androidx.fragment.app.Fragment
 
 /**
@@ -40,6 +40,13 @@ fun Fragment.edgeToEdge(handling: () -> Unit) {
  * Handle insets on the [View] with padding
  */
 infix fun View.paddingTo(insetType: Int) {
+    paddingTo(insetType, null)
+}
+
+/**
+ * Handle insets on the [View] with padding
+ */
+fun View.paddingTo(insetType: Int, onInsetsUpdate: (() -> Unit)?) {
     val oldPaddingLeft = paddingLeft
     val oldPaddingTop = paddingTop
     val oldPaddingRight = paddingRight
@@ -54,6 +61,8 @@ infix fun View.paddingTo(insetType: Int) {
             bottom = oldPaddingBottom + inset.bottom
         )
 
+        onInsetsUpdate?.invoke()
+
         insets
     }
 }
@@ -62,6 +71,13 @@ infix fun View.paddingTo(insetType: Int) {
  * Handle insets on the [View] with margin
  */
 infix fun View.marginTo(insetType: Int) {
+    marginTo(insetType, null)
+}
+
+/**
+ * Handle insets on the [View] with margin
+ */
+fun View.marginTo(insetType: Int, onInsetsUpdate: (() -> Unit)?) {
     val oldMarginLeft = marginLeft
     val oldMarginTop = marginTop
     val oldMarginRight = marginRight
@@ -69,27 +85,46 @@ infix fun View.marginTo(insetType: Int) {
 
     ViewCompat.setOnApplyWindowInsetsListener(this) { view, insets ->
         val inset = insets.getInsets(insetType)
-        view.updateLayoutParams<ViewGroup.MarginLayoutParams> {
-            updateMargins(
-                left = oldMarginLeft + inset.left,
-                top = oldMarginTop + inset.top,
-                right = oldMarginRight + inset.right,
-                bottom = oldMarginBottom + inset.bottom
-            )
-        }
+        view.updateMargin(
+            left = oldMarginLeft + inset.left,
+            top = oldMarginTop + inset.top,
+            right = oldMarginRight + inset.right,
+            bottom = oldMarginBottom + inset.bottom
+        )
+
+        onInsetsUpdate?.invoke()
 
         insets
     }
 }
 
+/**
+ * Checks is keyboard visible right now
+ */
+fun View.isKeyboardVisible(): Boolean = isInsetVisible(ime())
+
+/**
+ * Shows the soft keyboard
+ */
 fun View.showKeyboard() {
     val activity = context as? Activity ?: return
     val controller = WindowInsetsControllerCompat(activity.window, this)
-    controller.show(WindowInsetsCompat.Type.ime())
+    controller.show(ime())
 }
 
+/**
+ * Hides the soft keyboard
+ */
 fun View.hideKeyboard() {
     val activity = context as? Activity ?: return
     val controller = WindowInsetsControllerCompat(activity.window, this)
-    controller.hide(WindowInsetsCompat.Type.ime())
+    controller.hide(ime())
+}
+
+/**
+ * Checks is inset with [insetType] visible right now
+ */
+private fun View.isInsetVisible(insetType: Int): Boolean {
+    val insets = ViewCompat.getRootWindowInsets(this)
+    return insets?.isVisible(insetType) == true
 }
