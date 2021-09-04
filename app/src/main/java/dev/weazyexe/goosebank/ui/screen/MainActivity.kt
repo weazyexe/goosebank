@@ -12,6 +12,7 @@ import dev.weazyexe.goosebank.ui.screen.finances.FinancesFragment
 import dev.weazyexe.goosebank.ui.screen.history.HistoryFragment
 import dev.weazyexe.goosebank.ui.screen.payments.PaymentsFragment
 import dev.weazyexe.goosebank.util.edgeToEdge
+import dev.weazyexe.goosebank.util.marginTo
 import dev.weazyexe.goosebank.util.paddingTo
 
 /**
@@ -77,6 +78,7 @@ class MainActivity : AppCompatActivity() {
     private fun edgeToEdge() = with(binding) {
         edgeToEdge {
             bottomNavigation paddingTo navigationBars()
+            fragmentContainer marginTo navigationBars()
         }
     }
 }
