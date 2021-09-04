@@ -3,8 +3,7 @@
 
     <string name="menu_finances">Finances</string>
     <string name="menu_history">History</string>
-    <string name="menu_payments">Payments</string>
-    <string name="menu_chat">Chat</string>
+    <string name="menu_support">Support</string>
 
     <string name="account_type_standard">Standard</string>
     <string name="account_type_platinum">Platinum</string>
@@ -15,5 +14,5 @@
 
     <string name="search_text">Search</string>
 
-    <string name="chat_type_message">Type a message...</string>
+    <string name="chat_type_message">Type a message…</string>
 </resources>

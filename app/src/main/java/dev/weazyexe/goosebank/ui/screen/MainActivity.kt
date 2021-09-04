@@ -10,7 +10,6 @@ import dev.weazyexe.goosebank.ui.common.BaseFragment
 import dev.weazyexe.goosebank.ui.screen.chat.ChatFragment
 import dev.weazyexe.goosebank.ui.screen.finances.FinancesFragment
 import dev.weazyexe.goosebank.ui.screen.history.HistoryFragment
-import dev.weazyexe.goosebank.ui.screen.payments.PaymentsFragment
 import dev.weazyexe.goosebank.util.edgeToEdge
 import dev.weazyexe.goosebank.util.marginTo
 import dev.weazyexe.goosebank.util.paddingTo
@@ -26,7 +25,6 @@ class MainActivity : AppCompatActivity() {
 
     private val financesFragment by lazy { FinancesFragment() }
     private val historyFragment by lazy { HistoryFragment() }
-    private val paymentsFragment by lazy { PaymentsFragment() }
     private val chatFragment by lazy { ChatFragment() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,9 +40,6 @@ class MainActivity : AppCompatActivity() {
             add(R.id.fragment_container, historyFragment, historyFragment.tag()).hide(
                 historyFragment
             )
-            add(R.id.fragment_container, paymentsFragment, paymentsFragment.tag()).hide(
-                paymentsFragment
-            )
             add(R.id.fragment_container, chatFragment, chatFragment.tag()).hide(chatFragment)
             add(R.id.fragment_container, financesFragment, financesFragment.tag())
             currentScreen = financesFragment
@@ -55,7 +50,6 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.tab_finances -> navigate(financesFragment)
                 R.id.tab_history -> navigate(historyFragment)
-                R.id.tab_payments -> navigate(paymentsFragment)
                 R.id.tab_chat -> navigate(chatFragment)
                 else -> false
             }

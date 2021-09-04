@@ -41,7 +41,7 @@ class ChatFragment : BaseFragment(R.layout.fragment_chat) {
     }
 
     private fun setupToolbar() = with(binding) {
-        toolbar.title = string(R.string.menu_chat)
+        toolbar.title = string(R.string.menu_support)
     }
 
     private fun edgeToEdge() = with(binding) {
