@@ -44,13 +44,13 @@ class HistoryFragment : BaseFragment(R.layout.fragment_history) {
 
     private fun setupToolbar() = with(binding) {
         setHasOptionsMenu(true)
-        toolbar.title = string(R.string.menu_history)
-        toolbar.menu = R.menu.search_menu
+        historyToolbar.title = string(R.string.menu_history)
+        historyToolbar.menu = R.menu.search_menu
     }
 
     private fun edgeToEdge() = with(binding) {
         edgeToEdge {
-            toolbar marginTo statusBars()
+            historyToolbar marginTo statusBars()
         }
     }
 
@@ -76,7 +76,7 @@ class HistoryFragment : BaseFragment(R.layout.fragment_history) {
     }
 
     private fun listen() = with(binding) {
-        toolbar.onSearchChanged = {
+        historyToolbar.onSearchChanged = {
             viewModel.searchTransactions(it)
         }
     }

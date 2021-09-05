@@ -4,6 +4,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
+import androidx.core.view.doOnLayout
 import androidx.fragment.app.Fragment
 
 fun Fragment.string(@StringRes stringRes: Int): String = getString(stringRes)
@@ -11,3 +12,9 @@ fun Fragment.string(@StringRes stringRes: Int): String = getString(stringRes)
 @ColorInt
 fun Fragment.color(@ColorRes colorRes: Int): Int =
     ContextCompat.getColor(requireContext(), colorRes)
+
+fun Fragment.doOnLayout(block: () -> Unit) {
+    view?.doOnLayout {
+        block()
+    }
+}

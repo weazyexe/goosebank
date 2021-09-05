@@ -36,7 +36,7 @@ class FinancesFragment : BaseFragment(R.layout.fragment_finances) {
     }
 
     private fun setupToolbar() = with(binding) {
-        toolbar.title = string(R.string.menu_finances)
+        financesToolbar.title = string(R.string.menu_finances)
     }
 
     private fun setupAdapter() = with(binding) {
@@ -46,7 +46,7 @@ class FinancesFragment : BaseFragment(R.layout.fragment_finances) {
 
     private fun edgeToEdge() = with(binding) {
         edgeToEdge {
-            toolbar marginTo statusBars()
+            financesToolbar marginTo statusBars()
         }
     }
 }

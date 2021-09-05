@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <dev.weazyexe.goosebank.ui.common.SearchToolbarView
-        android:id="@+id/toolbar"
+        android:id="@+id/history_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

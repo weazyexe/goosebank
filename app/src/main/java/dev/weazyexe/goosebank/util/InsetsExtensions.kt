@@ -3,9 +3,12 @@ package dev.weazyexe.goosebank.util
 import android.app.Activity
 import android.os.Build
 import android.view.View
+import androidx.core.graphics.Insets
 import androidx.core.view.*
 import androidx.core.view.WindowInsetsCompat.Type.ime
+import androidx.core.view.WindowInsetsCompat.Type.systemBars
 import androidx.fragment.app.Fragment
+import dev.weazyexe.goosebank.ui.common.EasyInsetsAnimationCallback
 
 /**
  * Go to edge-to-edge mode and handle insets on the [Activity]
@@ -96,6 +99,29 @@ fun View.marginTo(insetType: Int, onInsetsUpdate: (() -> Unit)?) {
 
         insets
     }
+}
+
+/**
+ * Animates insets' appearing and disappearing
+ *
+ * @param deferredInsetsTypes insets what have to be handled and animated
+ * @param persistentInsetsTypes system persistent insets
+ * @param additionalInsets our own insets to be handled with others
+ */
+fun View.animateInsets(
+    deferredInsetsTypes: Int = ime(),
+    persistentInsetsTypes: Int = systemBars(),
+    additionalInsets: Insets = Insets.NONE
+) {
+    ViewCompat.setWindowInsetsAnimationCallback(
+        this,
+        EasyInsetsAnimationCallback(
+            this,
+            deferredInsetsTypes,
+            persistentInsetsTypes,
+            additionalInsets
+        )
+    )
 }
 
 /**

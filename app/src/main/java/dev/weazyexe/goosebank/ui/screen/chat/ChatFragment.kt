@@ -2,7 +2,7 @@ package dev.weazyexe.goosebank.ui.screen.chat
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.WindowInsetsCompat.Type.ime
+import androidx.core.graphics.Insets
 import androidx.core.view.WindowInsetsCompat.Type.statusBars
 import androidx.core.view.marginBottom
 import androidx.fragment.app.viewModels
@@ -41,20 +41,19 @@ class ChatFragment : BaseFragment(R.layout.fragment_chat) {
     }
 
     private fun setupToolbar() = with(binding) {
-        toolbar.title = string(R.string.menu_support)
+        chatToolbar.title = string(R.string.menu_support)
     }
 
     private fun edgeToEdge() = with(binding) {
         edgeToEdge {
-            toolbar marginTo statusBars()
+            chatToolbar marginTo statusBars()
 
-            messagesRv.marginTo(ime()) {
-                messagesRv.scrollDown()
-                handleBottomNavMargin(messagesRv)
-            }
+            doOnLayout {
+                val bottomDiff = activityBinding.bottomNavigation.height
+                val ignoredInsets = Insets.of(0, 0, 0, bottomDiff - typeMessageTv.marginBottom)
 
-            typeMessageTv.marginTo(ime()) {
-                handleBottomNavMargin(typeMessageTv)
+                typeMessageTv.animateInsets(additionalInsets = ignoredInsets)
+                messagesRv.animateInsets(additionalInsets = ignoredInsets)
             }
         }
     }
@@ -71,17 +70,6 @@ class ChatFragment : BaseFragment(R.layout.fragment_chat) {
             viewModel.messages.collectLatest {
                 adapter.submitList(it)
             }
-        }
-    }
-
-    /**
-     * Handle too large bottom margin because nav bar
-     */
-    private fun handleBottomNavMargin(view: View) {
-        if (view.isKeyboardVisible()) {
-            val bottomNavHeight = activityBinding.bottomNavigation.height
-            val oldMargin = view.marginBottom
-            view.updateMargin(bottom = oldMargin - bottomNavHeight)
         }
     }
 }
